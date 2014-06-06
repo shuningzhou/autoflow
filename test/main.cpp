@@ -52,7 +52,7 @@ int main(int argc, const char * argv[])
     photos.push_back(Area(70.0, 120.0, 3));
     
     int bestLaytouIndex = bestLayout(layouts, photos,sortedLayout,sortedPhotos);
-    
+
     printf("best layout index: %d\n", bestLaytouIndex);
     
     Layout bestLayout = sortedLayout[bestLaytouIndex];

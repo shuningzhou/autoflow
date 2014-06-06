@@ -31,18 +31,20 @@ int bestLayout(vector<Layout> &layouts, vector<Area> &photos,vector<Layout> &sor
     }
     
     float min = numeric_limits<float>::max();
-    int layoutIndex = -1;
+    int bestLayoutIndex = -1;
     
     for (int i = 0; i < numberOfLayouts; i++) {
         float cut = crop(sortedLayouts[i].dropZones, sortedPhotos);
         printf("Total cropped area for layout[%d] is %f\n",i,cut);
         if (cut < min) {
             min = cut;
-            layoutIndex = i;
+            bestLayoutIndex = i;
         }
     }
     
-    return layoutIndex;
+    assert(bestLayoutIndex >= 0);
+    
+    return bestLayoutIndex;
 }
 
 float crop(vector<Area> &dropZones, vector<Area> &photos){
