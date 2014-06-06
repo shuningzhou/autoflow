@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[])
 {
-    vector<Layout> layouts, sortedLayout;
+    vector<Layout> layouts;
 
     vector<Area> dropZones0;
     dropZones0.push_back(Area(130.0, 100.0, 0));
@@ -45,17 +45,20 @@ int main(int argc, const char * argv[])
     
     layouts.push_back(Layout(dropZones3));
     
-    vector<Area> photos, sortedPhotos;
+    vector<Area> photos;
     photos.push_back(Area(200.0, 150.0, 0));
     photos.push_back(Area(210.0, 100.0, 1));
     photos.push_back(Area(80.0, 100.0, 2));
     photos.push_back(Area(70.0, 120.0, 3));
     
-    int bestLaytouIndex = bestLayout(layouts, photos,sortedLayout,sortedPhotos);
+    vector<Layout> sortedLayouts;
+    vector<Area> sortedPhotos;
+    
+    int bestLaytouIndex = bestLayout(layouts, photos,sortedLayouts,sortedPhotos);
 
     printf("best layout index: %d\n", bestLaytouIndex);
     
-    Layout bestLayout = sortedLayout[bestLaytouIndex];
+    Layout bestLayout = sortedLayouts[bestLaytouIndex];
     int size = (int)sortedPhotos.size();
     
     for(int i = 0; i < size ; i ++ ) {
